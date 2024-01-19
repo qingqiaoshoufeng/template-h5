@@ -1,0 +1,22 @@
+{
+  "name": "@castle/h5-template",
+  "version": "0.0.0",
+  "type": "module",
+  "bin": {
+    "castle-h5": "bin/index.js"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.3.11"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.5.2",
+    "commander": "^11.1.0",
+    "fs-extra": "^11.2.0",
+    "vite": "^5.0.8"
+  }
+}
