@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo ''
+echo -e "\033[36m开始进行 lint-staged...\033[0m"
+echo ''
+
+# exec >/dev/tty 2>&1
+
+npx lint-staged

@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
+  "extends": "@antfu",
+  "rules": {
+    "no-console": "error",
+    "no-debugger": "error",
+    "curly": ["error", "all"]
+  }
+}

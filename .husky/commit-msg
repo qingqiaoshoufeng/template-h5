@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo ''
+echo -e "\033[36m开始进行 commit lint...\033[0m"
+echo ''
+
+npx commitlint --edit $1
