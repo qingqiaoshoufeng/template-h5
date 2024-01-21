@@ -10,13 +10,13 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint-staged": "npx lint-staged",
-		"prepare": "husky install"
+    "prepare": "husky install"
   },
   "lint-staged": {
-		"*.{vue,js,jsx,cjs,mjs}": [
-			"eslint --ignore-path .gitignore"
-		]
-	},
+    "*.{vue,js,jsx,cjs,mjs}": [
+      "eslint --ignore-path .gitignore"
+    ]
+  },
   "dependencies": {
     "@antfu/eslint-config": "^0.43.1",
     "@commitlint/cli": "^18.4.4",
@@ -24,6 +24,7 @@
     "eslint": "^8.56.0",
     "eslint-plugin-vue": "^9.20.1",
     "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
     "vue": "^3.3.11"
   },
   "devDependencies": {
