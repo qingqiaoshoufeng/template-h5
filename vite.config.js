@@ -10,15 +10,24 @@ export default async ({ command, mode }) => {
   const { merge } = lodash
 
   const settings = await import(pathToFileURL(`${path.resolve(process.cwd(), './src/config/vite-config.js')}`))
-  const { default: { vite, server } } = settings
+  const { default: { vite, server, build, optimizeDeps } } = settings
   const env = loadEnv(mode, process.cwd(), '')
 
-  const userConfig = vite && vite({ command, mode, env })
+  const viteConfig = vite && vite({ command, mode, env })
+  const serverConfig = server && server({ command, mode, env })
+  const buildConfig = build && build({ command, mode, env })
+  const optimizeDepsConfig = optimizeDeps && optimizeDeps({ command, mode, env })
 
   const defaultConfig = defineConfig({
-    server: server && server({ command, mode, env }),
     plugins: [vue()],
+    resolve: {
+      alias: {
+        '~': path.resolve(process.cwd(), './'),
+        '@': path.resolve(process.cwd(), './src'),
+        '#': path.resolve(process.cwd(), './node_modules/@castle/template-h5/src'),
+      },
+    },
   })
 
-  return merge(defaultConfig, userConfig)
+  return merge(defaultConfig, viteConfig, serverConfig, buildConfig, optimizeDepsConfig)
 }
