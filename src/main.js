@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
-import projectConfig from '@/config/project-config.js'
+import projectConfig from '#/utils/getProjectConfig.js'
 
 const app = createApp(App)
 
