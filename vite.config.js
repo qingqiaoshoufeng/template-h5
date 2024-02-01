@@ -2,7 +2,7 @@ import path from 'node:path'
 import process from 'node:process'
 import { pathToFileURL } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
-import lodash from 'lodash'
+import lodash from 'lodash-es'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
