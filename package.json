@@ -1,6 +1,6 @@
 {
   "name": "@castle/template-h5",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "bin": {
     "castle-h5": "bin/index.js"
