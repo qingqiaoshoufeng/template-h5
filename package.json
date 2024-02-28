@@ -30,6 +30,8 @@
     "lint-staged": "^15.2.0",
     "lodash": "^4.17.21",
     "vite": "^5.0.12",
-    "vue": "^3.3.11"
+    "vite-plugin-pages": "^0.32.0",
+    "vue": "^3.3.11",
+    "vue-router": "^4.2.5"
   }
 }

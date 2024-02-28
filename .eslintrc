@@ -6,6 +6,7 @@
     "es6": true
   },
   "extends": "@antfu",
+  "ignorePatterns": ["bin/**"],
   "rules": {
     "no-console": "error",
     "no-debugger": "error",

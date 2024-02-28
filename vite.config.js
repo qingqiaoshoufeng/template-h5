@@ -4,6 +4,7 @@ import { pathToFileURL } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
 import lodash from 'lodash'
 import vue from '@vitejs/plugin-vue'
+import pages from 'vite-plugin-pages'
 
 // https://vitejs.dev/config/
 export default async ({ command, mode }) => {
@@ -19,7 +20,17 @@ export default async ({ command, mode }) => {
   const optimizeDepsConfig = optimizeDeps && optimizeDeps({ command, mode, env })
 
   const defaultConfig = defineConfig({
-    plugins: [vue()],
+    plugins: [
+      vue(),
+      pages(
+        {
+          routeStyle: 'next',
+          exclude: ['**/*/_*.@(vue|js|jsx)'],
+          dirs: 'src/pages',
+        },
+
+      ),
+    ],
     resolve: {
       alias: {
         '~': path.resolve(process.cwd(), './'),
