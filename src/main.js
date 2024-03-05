@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import './style.css'
 import App from './App.vue'
+import router from './router'
 import provideUtils from '#/utils/provideUtils.js'
 import projectConfig from '#/utils/getProjectConfig.js'
 
@@ -11,7 +13,8 @@ if (typeof projectConfig?.lifecycle?.beforeMount === 'function') {
 }
 
 provideUtils(app)
-
+app.use(router)
+app.use(createPinia())
 app.mount('#app')
 
 if (typeof projectConfig?.lifecycle?.mounted === 'function') {
