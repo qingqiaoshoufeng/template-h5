@@ -1,8 +1,9 @@
-<script>
+<script setup>
+import Login from '@/login/index.vue'
 </script>
 
 <template>
-  <div>登录页</div>
+  <Login />
 </template>
 
 <style lang="less" scoped>

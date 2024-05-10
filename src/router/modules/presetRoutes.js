@@ -1,12 +1,17 @@
 import extraRoutes from './extraRoutes'
 import userSettings from '#/utils/getUserSettings.js'
-import { isType } from '#/utils/type.js'
+
+// import { isType } from '#/utils/type.js'
+
+import login from '#/views/login/index.vue'
+
+// console.log(login)
 
 // 登录页
 export const LOGIN = {
   path: '/login',
   name: 'login',
-  component: () => import('#/views/login/index.vue'),
+  component: login,
   meta: {
     requiresAuth: false,
     permissions: [],
@@ -34,6 +39,7 @@ export const NOT_FOUND_ROUTE = {
     permissions: [],
   },
 }
+// console.log(userSettings, userSettings.homePath, 'userSettings.homePath')
 
 // 首页
 export const INDEX = {
@@ -41,7 +47,7 @@ export const INDEX = {
   name: 'index',
   // redirect: userSettings.homePath || undefined,
 
-  redirect: isType(userSettings.homePath, 'Function') ? userSettings.homePath() : (userSettings.homePath || '/'),
+  redirect: (userSettings.homePath || '/'),
   meta: {
     title: '首页',
     requiresAuth: false,

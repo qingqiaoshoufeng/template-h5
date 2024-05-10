@@ -1,5 +1,5 @@
 import { isType } from './type'
 
-import userSettings from '@/config/project-config.js'
+import userSettings from '@/config/project-config.mjs'
 
-export default isType(userSettings, 'function') ? userSettings({ env: import.meta.env }) : userSettings
+export default isType(userSettings, 'Function') ? userSettings({ env: import.meta.env }) : userSettings

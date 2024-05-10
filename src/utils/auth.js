@@ -1,4 +1,8 @@
-import userSettings from '#/utils/getUserSettings.js'
+// import userSettings from '#/utils/getUserSettings.js'
+import { isType } from './type'
+import userSettingss from '@/config/project-config.mjs'
+
+const userSettings = isType(userSettingss, 'function') ? userSettingss({ env: import.meta.env }) : userSettingss
 
 const TOKEN_KEY = userSettings.tokenKeyName || 'token'
 
