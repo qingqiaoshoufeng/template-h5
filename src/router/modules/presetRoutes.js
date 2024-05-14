@@ -1,11 +1,6 @@
 import extraRoutes from './extraRoutes'
 import userSettings from '#/utils/getUserSettings.js'
-
-// import { isType } from '#/utils/type.js'
-
 import login from '#/views/login/index.vue'
-
-// console.log(login)
 
 // 登录页
 export const LOGIN = {

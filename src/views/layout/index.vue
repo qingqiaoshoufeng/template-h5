@@ -1,30 +1,30 @@
 <script setup>
-import {
-  RouterView,
-  //  useRoute,
-  useRouter,
-} from 'vue-router'
+import { RouterView, useRoute, useRouter } from 'vue-router'
+import { computed, provide } from 'vue'
+import extraRoutes from '#/router/modules/extraRoutes'
 
+const route = useRoute()
 const router = useRouter()
 
-const list = [
-  {
-    name: 111,
-    click: () => {
-      router.push({
-        name: 'test',
-      })
-    },
-  },
-  {
-    name: 222,
-    click: () => {
-      router.push({
-        name: 'test2',
-      })
-    },
-  },
-]
+const listMap = extraRoutes.reduce((current, item) => {
+  if (item.meta.pageGroup) {
+    !current[item?.meta?.pageGroup] && (current[item?.meta?.pageGroup] = [])
+    current[item?.meta?.pageGroup].push({
+      ...item,
+      click: () => {
+        router.push({
+          name: item.name,
+        })
+      },
+    })
+  }
+  return current
+}, {})
+
+const list = computed(() => {
+  return listMap[route?.meta?.pageGroup]
+})
+provide('tabBarList', tabBarList)
 </script>
 
 <script>
@@ -37,9 +37,9 @@ const list = [
         <component :is="Component" />
       </RouterView>
     </div>
-    <div class="bar-wrapper">
+    <div v-if="!route?.meta?.hideInMenu" class="bar-wrapper">
       <div v-for="(item, index) in list" :key="index" @click="item.click">
-        {{ item.name }}
+        {{ item?.meta?.title }}
       </div>
     </div>
   </div>
