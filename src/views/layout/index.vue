@@ -24,7 +24,7 @@ const listMap = extraRoutes.reduce((current, item) => {
 const list = computed(() => {
   return listMap[route?.meta?.pageGroup]
 })
-provide('tabBarList', tabBarList)
+provide('tabBarList', list)
 </script>
 
 <script>
