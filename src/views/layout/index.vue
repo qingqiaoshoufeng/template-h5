@@ -22,7 +22,11 @@ const listMap = extraRoutes.reduce((current, item) => {
 }, {})
 
 const list = computed(() => {
-  return listMap[route?.meta?.pageGroup]
+  // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+  const result = listMap[route?.meta?.pageGroup]?.sort((a, b) => {
+    return (a?.meta?.sort - b?.meta?.sort)
+  })
+  return result
 })
 provide('tabBarList', list)
 </script>
